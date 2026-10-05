@@ -1,0 +1,20 @@
+# Check correctness and portability without imposing C++ API/style conventions.
+# Adjacent size arguments are intentional in the explicit C initialization APIs.
+# Standard C memory functions are required; Annex K replacements are not portable.
+# Public C11 enums cannot specify the C++ underlying types suggested by enum-size.
+Checks: >-
+  -*,
+  clang-analyzer-*,
+  bugprone-*,
+  performance-*,
+  portability-*,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-unsafe-functions,
+  -clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,
+  -performance-enum-size
+WarningsAsErrors: '*'
+HeaderFilterRegex: '(^|/)(include/flux|src|tests)/.*'
+FormatStyle: file
+InheritParentConfig: false
+CheckOptions:
+  bugprone-reserved-identifier.AllowedIdentifiers: '_POSIX_C_SOURCE'

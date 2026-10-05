@@ -1,6 +1,12 @@
 # Prerequisites
 *.d
 
+# CMake build trees
+/build*/
+/compile_commands.json
+/.cache/clangd/
+/.vscode/
+
 # Object files
 *.o
 *.ko
